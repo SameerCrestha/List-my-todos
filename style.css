@@ -1,0 +1,205 @@
+html {
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(30deg, #e99773, #edc7b7);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header,
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+header {
+    font-size: 1.5rem;
+    color: #ac3b61;
+}
+
+.add-input>*,
+.remove-completed>* {
+    pointer-events: none;
+}
+
+.add-input {
+    background-color: whitesmoke;
+    color: rgb(243, 169, 32);
+}
+
+form {
+    width: 50vw;
+    margin: auto;
+    padding: 20px;
+}
+
+.section-1 {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+}
+
+form .section-1>* {
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    outline: none;
+}
+
+.text-input {
+    flex-grow: 1;
+}
+
+.all-container {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-item {
+    padding: 0.5rem;
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #123c69;
+    background-color: aliceblue;
+    margin: 0.2% 0%;
+    animation: slide-in 1s;
+    transition: all 1s ease;
+}
+
+.todo-item>* {
+    padding: 0 0.4rem;
+}
+
+.todo-text {
+    flex-grow: 1;
+}
+
+.todo-item i,
+.remove-completed i {
+    pointer-events: none;
+}
+
+.completed {
+    transition: all 1s ease;
+    text-decoration: line-through;
+    background-color: rgba(245, 240, 240, 0.459);
+    color: rgba(49, 35, 35, 0.863);
+    opacity: 0.8;
+}
+
+.deleted {
+    transition: all 0.4s ease;
+    animation: slide-out 1s;
+    opacity: 0;
+}
+
+.completed-button,
+.delete-button,
+.add-input,
+.remove-completed {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@keyframes slide-out {
+    to {
+        transform: translateX(200vw);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.remove-completed {
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #ee1c62;
+    color: aliceblue;
+    box-shadow: 0 3px #999;
+}
+
+.remove-completed>* {
+    padding: 0.1rem;
+}
+
+.remove-completed:active {
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
+}
+
+@media screen and (max-width:1024px) {
+    form {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .remove-completed {
+        margin-top: 2vw;
+    }
+    .todo-item {
+        width: 90%;
+    }
+}
+
+
+/*for no touch */
+
+@media (pointer:fine) {
+    .add-input:hover {
+        color: whitesmoke;
+        background-color: orange;
+    }
+    .remove-completed:hover {
+        background-color: #eb7b4bb7;
+        color: #123c69;
+    }
+    .completed-button:hover,
+    .delete-button:hover {
+        transform: scale(1.2);
+    }
+}
+
+
+/*for touch enabled*/
+
+@media(pointer:coarse) {
+    .add-input:active {
+        color: whitesmoke;
+        background-color: orange;
+    }
+    .remove-completed {
+        background-color: #eb7b4bb7;
+        color: #123c69;
+    }
+    .completed-button:active,
+    .delete-button:active {
+        transform: scale(1.2);
+    }
+}
