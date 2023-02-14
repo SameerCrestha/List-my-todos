@@ -3,4 +3,4 @@ Simple to do list using html css and vanilla js. The listing are saved to browse
 
 ![](demo.gif)
 
-Live Demo at:listmytodos.vercel.app
+Live Demo at: listmytodos.vercel.app
